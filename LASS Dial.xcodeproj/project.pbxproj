@@ -12,7 +12,87 @@
 		DA06BA501C52F10600E90653 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA06BA4E1C52F10600E90653 /* Main.storyboard */; };
 		DA06BA521C52F10600E90653 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA06BA511C52F10600E90653 /* Assets.xcassets */; };
 		DA06BA551C52F10600E90653 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA06BA531C52F10600E90653 /* LaunchScreen.storyboard */; };
+		DA0DECE61C5B3C000069B361 /* StyleKitDial.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0DECE51C5B3C000069B361 /* StyleKitDial.swift */; };
+		DA0DECE91C5B3E700069B361 /* StyleKitDial.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0DECE51C5B3C000069B361 /* StyleKitDial.swift */; };
+		DA0DECEA1C5B3E710069B361 /* StyleKitDial.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0DECE51C5B3C000069B361 /* StyleKitDial.swift */; };
+		DA30AD5A1C56A85500FB837A /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA30AD591C56A85500FB837A /* NotificationCenter.framework */; };
+		DA30AD5D1C56A85500FB837A /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA30AD5C1C56A85500FB837A /* TodayViewController.swift */; };
+		DA30AD601C56A85500FB837A /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA30AD5E1C56A85500FB837A /* MainInterface.storyboard */; };
+		DA30AD641C56A85500FB837A /* Today.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = DA30AD571C56A85500FB837A /* Today.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		DA30AD6F1C56A87800FB837A /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA30AD6D1C56A87800FB837A /* Interface.storyboard */; };
+		DA30AD711C56A87800FB837A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA30AD701C56A87800FB837A /* Assets.xcassets */; };
+		DA30AD781C56A87800FB837A /* Watch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = DA30AD771C56A87800FB837A /* Watch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		DA30AD7D1C56A87800FB837A /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA30AD7C1C56A87800FB837A /* InterfaceController.swift */; };
+		DA30AD7F1C56A87800FB837A /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA30AD7E1C56A87800FB837A /* ExtensionDelegate.swift */; };
+		DA30AD811C56A87800FB837A /* GlanceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA30AD801C56A87800FB837A /* GlanceController.swift */; };
+		DA30AD831C56A87800FB837A /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA30AD821C56A87800FB837A /* ComplicationController.swift */; };
+		DA30AD851C56A87800FB837A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA30AD841C56A87800FB837A /* Assets.xcassets */; };
+		DA30AD891C56A87800FB837A /* Watch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = DA30AD6B1C56A87800FB837A /* Watch.app */; };
+		DA4A33AF1C619EA8001B05EB /* DataItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4A33AE1C619EA8001B05EB /* DataItemView.swift */; };
+		DA4C92351C5EF6B3009FA7D8 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4C92341C5EF6B3009FA7D8 /* Data.swift */; };
+		DA4C92361C5EF6B8009FA7D8 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4C92341C5EF6B3009FA7D8 /* Data.swift */; };
+		DA4C92371C5EF6B9009FA7D8 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4C92341C5EF6B3009FA7D8 /* Data.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DA30AD621C56A85500FB837A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DA06BA3F1C52F10600E90653 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DA30AD561C56A85500FB837A;
+			remoteInfo = Today;
+		};
+		DA30AD791C56A87800FB837A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DA06BA3F1C52F10600E90653 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DA30AD761C56A87800FB837A;
+			remoteInfo = "Watch Extension";
+		};
+		DA30AD871C56A87800FB837A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DA06BA3F1C52F10600E90653 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DA30AD6A1C56A87800FB837A;
+			remoteInfo = Watch;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		DA30AD681C56A85500FB837A /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				DA30AD641C56A85500FB837A /* Today.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DA30AD8D1C56A87800FB837A /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				DA30AD781C56A87800FB837A /* Watch Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DA30AD911C56A87800FB837A /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				DA30AD891C56A87800FB837A /* Watch.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		DA06BA471C52F10600E90653 /* LASS Dial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "LASS Dial.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -22,10 +102,44 @@
 		DA06BA511C52F10600E90653 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DA06BA541C52F10600E90653 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DA06BA561C52F10600E90653 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DA0DECE51C5B3C000069B361 /* StyleKitDial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyleKitDial.swift; sourceTree = "<group>"; };
+		DA30AD571C56A85500FB837A /* Today.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Today.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA30AD591C56A85500FB837A /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		DA30AD5C1C56A85500FB837A /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		DA30AD5F1C56A85500FB837A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		DA30AD611C56A85500FB837A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DA30AD6B1C56A87800FB837A /* Watch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Watch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA30AD6E1C56A87800FB837A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		DA30AD701C56A87800FB837A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DA30AD721C56A87800FB837A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DA30AD771C56A87800FB837A /* Watch Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Watch Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA30AD7C1C56A87800FB837A /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		DA30AD7E1C56A87800FB837A /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		DA30AD801C56A87800FB837A /* GlanceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlanceController.swift; sourceTree = "<group>"; };
+		DA30AD821C56A87800FB837A /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
+		DA30AD841C56A87800FB837A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DA30AD861C56A87800FB837A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DA4A33AE1C619EA8001B05EB /* DataItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataItemView.swift; sourceTree = "<group>"; };
+		DA4C92341C5EF6B3009FA7D8 /* Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		DA06BA441C52F10600E90653 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DA30AD541C56A85500FB837A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA30AD5A1C56A85500FB837A /* NotificationCenter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DA30AD741C56A87800FB837A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -38,7 +152,13 @@
 		DA06BA3E1C52F10600E90653 = {
 			isa = PBXGroup;
 			children = (
+				DA4C92341C5EF6B3009FA7D8 /* Data.swift */,
+				DA0DECE51C5B3C000069B361 /* StyleKitDial.swift */,
 				DA06BA491C52F10600E90653 /* LASS Dial */,
+				DA30AD5B1C56A85500FB837A /* Today */,
+				DA30AD6C1C56A87800FB837A /* Watch */,
+				DA30AD7B1C56A87800FB837A /* Watch Extension */,
+				DA30AD581C56A85500FB837A /* Frameworks */,
 				DA06BA481C52F10600E90653 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -47,6 +167,9 @@
 			isa = PBXGroup;
 			children = (
 				DA06BA471C52F10600E90653 /* LASS Dial.app */,
+				DA30AD571C56A85500FB837A /* Today.appex */,
+				DA30AD6B1C56A87800FB837A /* Watch.app */,
+				DA30AD771C56A87800FB837A /* Watch Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -56,12 +179,54 @@
 			children = (
 				DA06BA4A1C52F10600E90653 /* AppDelegate.swift */,
 				DA06BA4C1C52F10600E90653 /* ViewController.swift */,
+				DA4A33AE1C619EA8001B05EB /* DataItemView.swift */,
 				DA06BA4E1C52F10600E90653 /* Main.storyboard */,
 				DA06BA511C52F10600E90653 /* Assets.xcassets */,
 				DA06BA531C52F10600E90653 /* LaunchScreen.storyboard */,
 				DA06BA561C52F10600E90653 /* Info.plist */,
 			);
 			path = "LASS Dial";
+			sourceTree = "<group>";
+		};
+		DA30AD581C56A85500FB837A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DA30AD591C56A85500FB837A /* NotificationCenter.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DA30AD5B1C56A85500FB837A /* Today */ = {
+			isa = PBXGroup;
+			children = (
+				DA30AD5C1C56A85500FB837A /* TodayViewController.swift */,
+				DA30AD5E1C56A85500FB837A /* MainInterface.storyboard */,
+				DA30AD611C56A85500FB837A /* Info.plist */,
+			);
+			path = Today;
+			sourceTree = "<group>";
+		};
+		DA30AD6C1C56A87800FB837A /* Watch */ = {
+			isa = PBXGroup;
+			children = (
+				DA30AD6D1C56A87800FB837A /* Interface.storyboard */,
+				DA30AD701C56A87800FB837A /* Assets.xcassets */,
+				DA30AD721C56A87800FB837A /* Info.plist */,
+			);
+			path = Watch;
+			sourceTree = "<group>";
+		};
+		DA30AD7B1C56A87800FB837A /* Watch Extension */ = {
+			isa = PBXGroup;
+			children = (
+				DA30AD7C1C56A87800FB837A /* InterfaceController.swift */,
+				DA30AD7E1C56A87800FB837A /* ExtensionDelegate.swift */,
+				DA30AD801C56A87800FB837A /* GlanceController.swift */,
+				DA30AD821C56A87800FB837A /* ComplicationController.swift */,
+				DA30AD841C56A87800FB837A /* Assets.xcassets */,
+				DA30AD861C56A87800FB837A /* Info.plist */,
+			);
+			path = "Watch Extension";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,15 +239,70 @@
 				DA06BA431C52F10600E90653 /* Sources */,
 				DA06BA441C52F10600E90653 /* Frameworks */,
 				DA06BA451C52F10600E90653 /* Resources */,
+				DA30AD681C56A85500FB837A /* Embed App Extensions */,
+				DA30AD911C56A87800FB837A /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				DA30AD631C56A85500FB837A /* PBXTargetDependency */,
+				DA30AD881C56A87800FB837A /* PBXTargetDependency */,
 			);
 			name = "LASS Dial";
 			productName = "LASS Dial";
 			productReference = DA06BA471C52F10600E90653 /* LASS Dial.app */;
 			productType = "com.apple.product-type.application";
+		};
+		DA30AD561C56A85500FB837A /* Today */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DA30AD651C56A85500FB837A /* Build configuration list for PBXNativeTarget "Today" */;
+			buildPhases = (
+				DA30AD531C56A85500FB837A /* Sources */,
+				DA30AD541C56A85500FB837A /* Frameworks */,
+				DA30AD551C56A85500FB837A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Today;
+			productName = Today;
+			productReference = DA30AD571C56A85500FB837A /* Today.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		DA30AD6A1C56A87800FB837A /* Watch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DA30AD8E1C56A87800FB837A /* Build configuration list for PBXNativeTarget "Watch" */;
+			buildPhases = (
+				DA30AD691C56A87800FB837A /* Resources */,
+				DA30AD8D1C56A87800FB837A /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DA30AD7A1C56A87800FB837A /* PBXTargetDependency */,
+			);
+			name = Watch;
+			productName = Watch;
+			productReference = DA30AD6B1C56A87800FB837A /* Watch.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		DA30AD761C56A87800FB837A /* Watch Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DA30AD8A1C56A87800FB837A /* Build configuration list for PBXNativeTarget "Watch Extension" */;
+			buildPhases = (
+				DA30AD731C56A87800FB837A /* Sources */,
+				DA30AD741C56A87800FB837A /* Frameworks */,
+				DA30AD751C56A87800FB837A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Watch Extension";
+			productName = "Watch Extension";
+			productReference = DA30AD771C56A87800FB837A /* Watch Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -96,6 +316,36 @@
 				TargetAttributes = {
 					DA06BA461C52F10600E90653 = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 52GGKN9JWU;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 0;
+							};
+							com.apple.Maps.iOS = {
+								enabled = 0;
+							};
+						};
+					};
+					DA30AD561C56A85500FB837A = {
+						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 52GGKN9JWU;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 0;
+							};
+						};
+					};
+					DA30AD6A1C56A87800FB837A = {
+						CreatedOnToolsVersion = 7.2;
+					};
+					DA30AD761C56A87800FB837A = {
+						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 52GGKN9JWU;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
@@ -113,6 +363,9 @@
 			projectRoot = "";
 			targets = (
 				DA06BA461C52F10600E90653 /* LASS Dial */,
+				DA30AD561C56A85500FB837A /* Today */,
+				DA30AD6A1C56A87800FB837A /* Watch */,
+				DA30AD761C56A87800FB837A /* Watch Extension */,
 			);
 		};
 /* End PBXProject section */
@@ -128,6 +381,31 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		DA30AD551C56A85500FB837A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA30AD601C56A85500FB837A /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DA30AD691C56A87800FB837A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA30AD711C56A87800FB837A /* Assets.xcassets in Resources */,
+				DA30AD6F1C56A87800FB837A /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DA30AD751C56A87800FB837A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA30AD851C56A87800FB837A /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -136,11 +414,55 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA06BA4D1C52F10600E90653 /* ViewController.swift in Sources */,
+				DA4C92351C5EF6B3009FA7D8 /* Data.swift in Sources */,
+				DA4A33AF1C619EA8001B05EB /* DataItemView.swift in Sources */,
 				DA06BA4B1C52F10600E90653 /* AppDelegate.swift in Sources */,
+				DA0DECE61C5B3C000069B361 /* StyleKitDial.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DA30AD531C56A85500FB837A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA0DECE91C5B3E700069B361 /* StyleKitDial.swift in Sources */,
+				DA4C92361C5EF6B8009FA7D8 /* Data.swift in Sources */,
+				DA30AD5D1C56A85500FB837A /* TodayViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DA30AD731C56A87800FB837A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA0DECEA1C5B3E710069B361 /* StyleKitDial.swift in Sources */,
+				DA4C92371C5EF6B9009FA7D8 /* Data.swift in Sources */,
+				DA30AD7F1C56A87800FB837A /* ExtensionDelegate.swift in Sources */,
+				DA30AD831C56A87800FB837A /* ComplicationController.swift in Sources */,
+				DA30AD7D1C56A87800FB837A /* InterfaceController.swift in Sources */,
+				DA30AD811C56A87800FB837A /* GlanceController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DA30AD631C56A85500FB837A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DA30AD561C56A85500FB837A /* Today */;
+			targetProxy = DA30AD621C56A85500FB837A /* PBXContainerItemProxy */;
+		};
+		DA30AD7A1C56A87800FB837A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DA30AD761C56A87800FB837A /* Watch Extension */;
+			targetProxy = DA30AD791C56A87800FB837A /* PBXContainerItemProxy */;
+		};
+		DA30AD881C56A87800FB837A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DA30AD6A1C56A87800FB837A /* Watch */;
+			targetProxy = DA30AD871C56A87800FB837A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		DA06BA4E1C52F10600E90653 /* Main.storyboard */ = {
@@ -157,6 +479,22 @@
 				DA06BA541C52F10600E90653 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		DA30AD5E1C56A85500FB837A /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DA30AD5F1C56A85500FB837A /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
+		DA30AD6D1C56A87800FB837A /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DA30AD6E1C56A87800FB837A /* Base */,
+			);
+			name = Interface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -249,10 +587,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = "LASS Dial/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.prodisky.LASS-Dial";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -260,10 +602,112 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = "LASS Dial/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.prodisky.LASS-Dial";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+			};
+			name = Release;
+		};
+		DA30AD661C56A85500FB837A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = Today/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.prodisky.LASS-Dial.Today";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		DA30AD671C56A85500FB837A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = Today/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.prodisky.LASS-Dial.Today";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		DA30AD8B1C56A87800FB837A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
+				INFOPLIST_FILE = "Watch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.prodisky.LASS-Dial.watchkitapp.watchkitextension";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE = "";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.1;
+			};
+			name = Debug;
+		};
+		DA30AD8C1C56A87800FB837A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
+				INFOPLIST_FILE = "Watch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.prodisky.LASS-Dial.watchkitapp.watchkitextension";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE = "";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.1;
+			};
+			name = Release;
+		};
+		DA30AD8F1C56A87800FB837A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				IBSC_MODULE = Watch_Extension;
+				INFOPLIST_FILE = Watch/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.prodisky.LASS-Dial.watchkitapp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.1;
+			};
+			name = Debug;
+		};
+		DA30AD901C56A87800FB837A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				IBSC_MODULE = Watch_Extension;
+				INFOPLIST_FILE = Watch/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.prodisky.LASS-Dial.watchkitapp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.1;
 			};
 			name = Release;
 		};
@@ -286,6 +730,34 @@
 				DA06BA5B1C52F10600E90653 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DA30AD651C56A85500FB837A /* Build configuration list for PBXNativeTarget "Today" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DA30AD661C56A85500FB837A /* Debug */,
+				DA30AD671C56A85500FB837A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DA30AD8A1C56A87800FB837A /* Build configuration list for PBXNativeTarget "Watch Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DA30AD8B1C56A87800FB837A /* Debug */,
+				DA30AD8C1C56A87800FB837A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DA30AD8E1C56A87800FB837A /* Build configuration list for PBXNativeTarget "Watch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DA30AD8F1C56A87800FB837A /* Debug */,
+				DA30AD901C56A87800FB837A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
