@@ -11,6 +11,7 @@
 http://www.prodisky.com/LASS/  
 回傳：  
 ["PM2.5","PM10","O3","PSI"]
+排列順序與 App 的資料顯示順序有關，而 Today Widget 只會顯示前三個，Apple Watch 只會顯示第一個。
 - 依照地理位置與資料項目名稱查詢 JSON 格式資料，例如：
 http://www.prodisky.com/LASS/?lat=24.169699&lng=120.658836&data=O3  
 回傳：
