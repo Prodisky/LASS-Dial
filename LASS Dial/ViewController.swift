@@ -12,7 +12,6 @@ class ViewController: UIViewController {
 	private var dataItemViews:[DataItemView] = []
 	private func renewDataItems() {
 		Data.shared.getItems({(items:[String]) in
-			NSLog("items:\(items)")
 			guard let view = self.view as? UIScrollView else { return }
 			let itemX = view.bounds.width * 10 / 320
 			let itemWidth = view.bounds.width * 300 / 320

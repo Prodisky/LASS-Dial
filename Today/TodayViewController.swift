@@ -10,12 +10,46 @@ import UIKit
 import NotificationCenter
 
 class TodayViewController: UIViewController, NCWidgetProviding {
-        
+	@IBOutlet weak var centerView: UIView!
+	private var dataItemViews:[DataItemView] = []
+	private func renewDataItems() {
+		Data.shared.getItems({(items:[String]) in
+			let count = items.count > 3 ? 3 : items.count
+			var itemX = count == 1 ? CGFloat(109) : count == 2 ? CGFloat(55) : CGFloat(0)
+			for var i = 0; i < count; i++ {
+				if i >= self.dataItemViews.count {
+					let newDataItemView = DataItemView()
+					self.dataItemViews.append(newDataItemView)
+					self.centerView.addSubview(newDataItemView)
+				}
+				let dataItemView = self.dataItemViews[i]
+				dataItemView.frame = CGRectMake(itemX, 0, 102, 136)
+				itemX += 109
+			}
+			for var i = 0; i < count; i++ {
+				let dataItemView = self.dataItemViews[i]
+				Data.shared.getData(items[i], got: {(dataItem:Dictionary<String, AnyObject>) in
+					dataItemView.dataItem = dataItem
+				})
+			}
+			while self.dataItemViews.count > count {
+				let dataItemView = self.dataItemViews[count]
+				dataItemView.removeFromSuperview()
+				self.dataItemViews.removeAtIndex(count)
+			}
+		})
+	}
     override func viewDidLoad() {
         super.viewDidLoad()
 		Data.shared.locationManager.requestAlwaysAuthorization()
+		
+		Data.shared.locationUpdate = {
+			NSLog("ViewController locationUpdate \(Data.shared.location)")
+			self.renewDataItems()
+		}
+		Data.shared.locationManager.requestAlwaysAuthorization()
+		renewDataItems()
     }
-	
 	override func viewWillAppear(animated: Bool) {
 		super.viewWillAppear(animated)
 		//Data.shared.Log("TodayViewController viewWillAppear")
