@@ -8,7 +8,26 @@
         <!--Interface Controller-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="Watch" customModuleProvider="target"/>
+                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="Watch" customModuleProvider="target">
+                    <items>
+                        <label alignment="center" text="LASS" id="pJZ-V2-EJi">
+                            <fontDescription key="font" type="system" pointSize="20"/>
+                        </label>
+                        <imageView width="88" height="88" alignment="center" id="wWQ-fk-K79"/>
+                        <label alignment="center" id="7Vj-D5-joW">
+                            <fontDescription key="font" type="system" pointSize="16"/>
+                        </label>
+                        <label alignment="center" id="yTV-R0-YVk">
+                            <fontDescription key="font" type="system" pointSize="9"/>
+                        </label>
+                    </items>
+                    <connections>
+                        <outlet property="nameLabel" destination="pJZ-V2-EJi" id="cgt-39-2Lh"/>
+                        <outlet property="ringsImage" destination="wWQ-fk-K79" id="r2U-JN-Y4K"/>
+                        <outlet property="stationLabel" destination="7Vj-D5-joW" id="qI3-YD-Kw7"/>
+                        <outlet property="timeLabel" destination="yTV-R0-YVk" id="rJq-rj-sjV"/>
+                    </connections>
+                </controller>
             </objects>
             <point key="canvasLocation" x="164" y="217"/>
         </scene>
@@ -17,10 +36,28 @@
             <objects>
                 <glanceController spacing="0.0" id="Sv0-Ai-Zie" customClass="GlanceController" customModule="Watch" customModuleProvider="target">
                     <items>
-                        <group alignment="left" id="gv7-I2-MZq"/>
-                        <group alignment="left" id="eew-Gs-W6Y"/>
+                        <group alignment="left" layout="vertical" spacing="1" id="gv7-I2-MZq">
+                            <items>
+                                <label alignment="center" verticalAlignment="bottom" text="LASS" id="2w8-Ff-eKC">
+                                    <fontDescription key="font" type="system" pointSize="20"/>
+                                </label>
+                            </items>
+                        </group>
+                        <group alignment="left" layout="vertical" id="eew-Gs-W6Y">
+                            <items>
+                                <imageView width="88" height="88" alignment="center" id="4nj-IK-jWA"/>
+                                <label alignment="center" textAlignment="center" id="A2P-cz-uxf">
+                                    <fontDescription key="font" type="system" pointSize="9"/>
+                                </label>
+                            </items>
+                        </group>
                     </items>
                     <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="14"/>
+                    <connections>
+                        <outlet property="nameLabel" destination="2w8-Ff-eKC" id="1gE-Jx-Lz7"/>
+                        <outlet property="ringsImage" destination="4nj-IK-jWA" id="shz-54-3Qp"/>
+                        <outlet property="timeLabel" destination="A2P-cz-uxf" id="2Fe-s7-jb4"/>
+                    </connections>
                 </glanceController>
             </objects>
             <point key="canvasLocation" x="164" y="514"/>

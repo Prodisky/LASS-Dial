@@ -41,10 +41,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
 	}
     override func viewDidLoad() {
         super.viewDidLoad()
-		Data.shared.locationManager.requestAlwaysAuthorization()
-		
 		Data.shared.locationUpdate = {
-			NSLog("ViewController locationUpdate \(Data.shared.location)")
 			self.renewDataItems()
 		}
 		Data.shared.locationManager.requestAlwaysAuthorization()

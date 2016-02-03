@@ -47,7 +47,6 @@ class ViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		Data.shared.locationUpdate = {
-			NSLog("ViewController locationUpdate \(Data.shared.location)")
 			self.renewDataItems()
 		}
 		Data.shared.locationManager.requestAlwaysAuthorization()

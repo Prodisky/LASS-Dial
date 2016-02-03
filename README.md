@@ -1,7 +1,31 @@
 # LASS Dial
-LASS Dial 依照目前地理位置與資料項目名稱查詢距離最近測站的最新資料，並加以呈現。
+- LASS Dial 依照目前地理位置與資料項目名稱查詢距離最近測站的最新資料，並加以呈現。
+- 支援 iOS 9.0 以上之 iPhone, iPad, iPod touch
+- 支援 Today Widget
+- 支援 Apple Watch
 
-## 資訊顯示設計
+## 使用自己的資料來源
+
+### 資料來源查詢設計需求
+- 無參數時列出所有可用資料項目，例如：
+http://www.prodisky.com/LASS/  
+回傳：  
+["PM2.5","PM10","O3","PSI"]
+- 依照地理位置與資料項目名稱查詢 JSON 格式資料，例如：
+http://www.prodisky.com/LASS/?lat=24.169699&lng=120.658836&data=O3  
+回傳：
+{"DataName":"O3","DataValue":26,"DataMin":0,"DataMax":200,"DataUnit":"ppb","SiteName":"忠明","SiteLat":24.151958,"SiteLng":120.641092,"PublishTime":"2016-02-03 16:00"}  
+回傳資料說明請參考最後面的資料需求
+- 不是所有的測站具備相同的資訊，好比說有的站沒有臭氧(O3)的資料，那上述的查詢，就需要傳回具有 O3 資料的測站中，距離指定坐標最近的測站資料。
+
+### 修改程式
+- Data.swift  
+將第 15 行程式的 dataURL 改成自己的主機 URL 字串。
+private let dataURL	= "http://www.prodisky.com/LASS/"
+
+
+
+## 設計說明
 - 一致性元素
 - 無操作機能
 
@@ -14,7 +38,6 @@ LASS Dial 依照目前地理位置與資料項目名稱查詢距離最近測站�
 - 中間的地方顯示精確的數值，數值底下顯示可選的單位。
 - 單位為可選是因為太小的元素還顯示的話，會小到看不清楚，不如別顯示。
 - 最小資訊顯示元素在 Apple Watch 上會以單色且有透明度的方式顯示。
-
 
 完整資訊顯示元素
 完整顯示圖用於比較大的畫面上，可以顯示較為詳細的資訊，但是主要的元素也包含最小資訊顯示元素，保持資訊顯示機能的一致性，如下圖：
@@ -33,7 +56,7 @@ iOS 上的 Today Widget
 
 ![Today Widget 使用圖例](http://www.prodisky.com/LASS/widget.png "Today Widget")
 
-- 在 Today Widget 的使用時，顯示最多三個使用者設定的資料。
+- 在 Today Widget 的使用時，顯示最多三個資料。
 
 ## 資料需求
 以完整資訊顯示元素來考慮，需要以下資料：
@@ -46,10 +69,3 @@ iOS 上的 Today Widget
 - 測站位置經度，例如：121.1504500000
 - 測站位置緯度，例如：22.7553580000
 - 更新時間，例如：2016/01/23 14:31
-
-### 期望雲端資料查詢設計
-- 列出所有可用資料項目，例如：
-http://www.prodisky.com/LASS/
-- 依照地理位置與資料項目名稱查詢 JSON 格式資料，例如：
-http://www.prodisky.com/LASS/?lat=24.169699&lng=120.658836&data=O3
-- 不是所有的測站具備相同的資訊，好比說有的站沒有臭氧(O3)的資料，那上述的查詢，就需要傳回具有 O3 資料的測站中，距離指定坐標最近的測站資料。

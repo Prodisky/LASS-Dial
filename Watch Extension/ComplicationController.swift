@@ -7,14 +7,74 @@
 //
 
 import ClockKit
-
-
+import WatchKit
 class ComplicationController: NSObject, CLKComplicationDataSource {
-    
-    // MARK: - Timeline Configuration
-    
+	private var nextRenewTime = NSDate(timeIntervalSinceNow: 0)
+	private var name = ""
+	private var data = ""
+	private var time = ""
+	
+	var modularImage = StyleKitDial.imageOfDataRing(frame: WKInterfaceDevice.currentDevice().preferredContentSizeCategory == "UICTContentSizeCategoryL" ? CGRectMake(0, 0, 58, 58) : CGRectMake(0, 0, 52, 52), data: "", unit: "", value: 0)
+	var circularImage = StyleKitDial.imageOfDataRing(frame: WKInterfaceDevice.currentDevice().preferredContentSizeCategory == "UICTContentSizeCategoryL" ? CGRectMake(0, 0, 44, 44) : CGRectMake(0, 0, 40, 40), data: "", unit: "", value: 0)
+	
+    private func renew() {
+		if NSDate(timeIntervalSinceNow: 0).timeIntervalSinceDate(nextRenewTime) < 0 { return }
+		nextRenewTime = NSDate(timeIntervalSinceNow: 120)
+		Data.shared.locationManager.requestLocation()
+		
+		Data.shared.getItems({(items:[String]) in
+			guard let item = items.first else { return }
+			Data.shared.getData(item, got: {(dataItem:Dictionary<String, AnyObject>) in
+				guard let name = dataItem["DataName"] as? String else { return }
+				
+				guard let dataMin = dataItem["DataMin"] as? CGFloat else { return }
+				guard let dataMax = dataItem["DataMax"] as? CGFloat else { return }
+				guard let dataValue = dataItem["DataValue"] as? Int else { return }
+				let value = (dataMax-dataMin) > 0 ? (CGFloat(dataValue) - dataMin) / (dataMax-dataMin) : 0
+				
+				guard let unit = dataItem["DataUnit"] as? String else { return }
+				guard let time = dataItem["PublishTime"] as? String else { return }
+				
+				self.name = name
+				self.modularImage = StyleKitDial.imageOfDataRing(frame: WKInterfaceDevice.currentDevice().preferredContentSizeCategory == "UICTContentSizeCategoryL" ? CGRectMake(0, 0, 58, 58) : CGRectMake(0, 0, 52, 52), data: String(dataValue), unit: unit, value: value)
+				self.circularImage = StyleKitDial.imageOfDataRing(frame: WKInterfaceDevice.currentDevice().preferredContentSizeCategory == "UICTContentSizeCategoryL" ? CGRectMake(0, 0, 44, 44) : CGRectMake(0, 0, 40, 40), data: String(dataValue), unit: unit, value: value)
+				
+				self.data = String(dataValue) + " " + unit
+				self.time = time
+			})
+		})
+	}
+	private func getComplicationTemplate(complication: CLKComplication)->CLKComplicationTemplate? {
+		renew()
+		switch complication.family {
+		case .CircularSmall:
+			let template = CLKComplicationTemplateCircularSmallRingImage()
+			template.imageProvider = CLKImageProvider(onePieceImage: circularImage)
+			return template
+		case .ModularSmall:
+			let template = CLKComplicationTemplateModularSmallSimpleImage()
+			template.imageProvider = CLKImageProvider(onePieceImage: modularImage)
+			return template
+		case .ModularLarge:
+			let template = CLKComplicationTemplateModularLargeStandardBody()
+			template.headerTextProvider = CLKSimpleTextProvider(text: name)
+			template.body1TextProvider = CLKSimpleTextProvider(text: data)
+			template.body2TextProvider = CLKSimpleTextProvider(text: time)
+			return template
+		case .UtilitarianSmall:
+			let template = CLKComplicationTemplateUtilitarianSmallFlat()
+			template.textProvider = CLKSimpleTextProvider(text: data)
+			return template
+		case .UtilitarianLarge:
+			let template = CLKComplicationTemplateUtilitarianLargeFlat()
+			template.textProvider = CLKSimpleTextProvider(text: name + ":" + data)
+			return template
+		}
+	}
+	
+	// MARK: - Timeline Configuration
     func getSupportedTimeTravelDirectionsForComplication(complication: CLKComplication, withHandler handler: (CLKComplicationTimeTravelDirections) -> Void) {
-        handler([.Forward, .Backward])
+        handler([.None])
     }
     
     func getTimelineStartDateForComplication(complication: CLKComplication, withHandler handler: (NSDate?) -> Void) {
@@ -32,8 +92,11 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
     // MARK: - Timeline Population
     
     func getCurrentTimelineEntryForComplication(complication: CLKComplication, withHandler handler: ((CLKComplicationTimelineEntry?) -> Void)) {
-        // Call the handler with the current timeline entry
-        handler(nil)
+		if let complication = self.getComplicationTemplate(complication) {
+			handler(CLKComplicationTimelineEntry(date: NSDate(), complicationTemplate: complication))
+		} else {
+			handler(nil)
+		}
     }
     
     func getTimelineEntriesForComplication(complication: CLKComplication, beforeDate date: NSDate, limit: Int, withHandler handler: (([CLKComplicationTimelineEntry]?) -> Void)) {
@@ -57,7 +120,16 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
     
     func getPlaceholderTemplateForComplication(complication: CLKComplication, withHandler handler: (CLKComplicationTemplate?) -> Void) {
         // This method will be called once per supported complication, and the results will be cached
-        handler(nil)
+		handler(self.getComplicationTemplate(complication))
     }
-    
+	func requestedUpdateDidBegin() {
+		if NSDate(timeIntervalSinceNow: 0).timeIntervalSinceDate(nextRenewTime) > 0 {
+			renew()
+		}
+		for complication in CLKComplicationServer.sharedInstance().activeComplications {
+			//Data.shared.Log("ComplicationController requestedUpdateDidBegin extend reload TimelineForComplication")
+			CLKComplicationServer.sharedInstance().extendTimelineForComplication(complication)
+			CLKComplicationServer.sharedInstance().reloadTimelineForComplication(complication)
+		}
+	}
 }
