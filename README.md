@@ -13,9 +13,9 @@ http://www.prodisky.com/LASS/
 ["PM2.5","PM10","O3","PSI"]
 排列順序與 App 的資料顯示順序有關，而 Today Widget 只會顯示前三個，Apple Watch 只會顯示第一個。
 - 依照地理位置與資料項目名稱查詢 JSON 格式資料，例如：
-http://www.prodisky.com/LASS/?lat=24.169699&lng=120.658836&data=O3  
+http://www.prodisky.com/LASS/?lat=24.169699&lng=120.658836&data=PM2.5  
 回傳：
-{"DataName":"O3","DataValue":24,"DataMin":0,"Color":"255,255,255,1","DataMax":200,"DataUnit":"ppb","SiteName":"忠明","SiteLat":24.151958,"SiteLng":120.641092,"PublishTime":"2016-02-03 19:00"}  
+{"DataName":"PM2.5","DataValue":24,"DataMin":0,"Color":"49,207,0,1","DataMax":70,"DataUnit":"μg\/m³","SiteName":"忠明","SiteLat":24.151958,"SiteLng":120.641092,"PublishTime":"2016-02-04 10:00"}
 回傳資料說明請參考最後面的資料需求
 - 不是所有的測站具備相同的資訊，好比說有的站沒有臭氧(O3)的資料，那上述的查詢，就需要傳回具有 O3 資料的測站中，距離指定坐標最近的測站資料。
 
