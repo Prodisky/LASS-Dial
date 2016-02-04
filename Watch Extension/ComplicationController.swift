@@ -26,8 +26,8 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
 			guard let item = items.first else { return }
 			Data.shared.getItem(item, got: {(dataItem:Data.Item) in
 				self.name = dataItem.dataName
-				self.modularImage = StyleKitDial.imageOfDataRing(frame: WKInterfaceDevice.currentDevice().preferredContentSizeCategory == "UICTContentSizeCategoryL" ? CGRectMake(0, 0, 58, 58) : CGRectMake(0, 0, 52, 52), data: dataItem.dataString, unit: dataItem.dataUnit, value: dataItem.dataFraction)
-				self.circularImage = StyleKitDial.imageOfDataRing(frame: WKInterfaceDevice.currentDevice().preferredContentSizeCategory == "UICTContentSizeCategoryL" ? CGRectMake(0, 0, 44, 44) : CGRectMake(0, 0, 40, 40), data: dataItem.dataString, unit: dataItem.dataUnit, value: dataItem.dataFraction)
+				self.modularImage = StyleKitDial.imageOfDataRing(frame: WKInterfaceDevice.currentDevice().preferredContentSizeCategory == "UICTContentSizeCategoryL" ? CGRectMake(0, 0, 58, 58) : CGRectMake(0, 0, 52, 52), data: dataItem.dataString, unit: dataItem.dataUnit, value: dataItem.dataFraction, colorR: dataItem.colorR, colorG: dataItem.colorG, colorB: dataItem.colorB, colorA: dataItem.colorA)
+				self.circularImage = StyleKitDial.imageOfDataRing(frame: WKInterfaceDevice.currentDevice().preferredContentSizeCategory == "UICTContentSizeCategoryL" ? CGRectMake(0, 0, 44, 44) : CGRectMake(0, 0, 40, 40), data: dataItem.dataString, unit: dataItem.dataUnit, value: dataItem.dataFraction, colorR: dataItem.colorR, colorG: dataItem.colorG, colorB: dataItem.colorB, colorA: dataItem.colorA)
 				
 				self.data = dataItem.dataString + " " + dataItem.dataUnit
 				self.time = dataItem.publishTime

@@ -20,7 +20,7 @@ class GlanceController: WKInterfaceController {
 			guard let item = items.first else { return }
 			Data.shared.getItem(item, got: {(dataItem:Data.Item) in
 				self.nameLabel.setText(dataItem.dataName)
-				self.ringsImage.setImage(StyleKitDial.imageOfDataRing(frame: CGRectMake(0, 0, 88, 88), data: dataItem.dataString, unit: dataItem.dataUnit, value: dataItem.dataFraction))
+				self.ringsImage.setImage(StyleKitDial.imageOfDataRing(frame: CGRectMake(0, 0, 88, 88), data: dataItem.dataString, unit: dataItem.dataUnit, value: dataItem.dataFraction, colorR: dataItem.colorR, colorG: dataItem.colorG, colorB: dataItem.colorB, colorA: dataItem.colorA))
 				self.timeLabel.setText(dataItem.publishTime)
 			})
 		})
