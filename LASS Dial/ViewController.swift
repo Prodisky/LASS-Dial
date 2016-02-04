@@ -33,7 +33,7 @@ class ViewController: UIViewController {
 			}
 			for var i = 0; i < items.count; i++ {
 				let dataItemView = self.dataItemViews[i]
-				Data.shared.getData(items[i], got: {(dataItem:Dictionary<String, AnyObject>) in
+				Data.shared.getItem(items[i], got: {(dataItem:Data.Item) in
 					dataItemView.dataItem = dataItem
 				})
 			}

@@ -11,6 +11,24 @@ import CoreLocation
 
 class Data: NSObject {
 	static let shared	= Data()
+	
+	struct Item {
+		var dataName = ""
+		var dataMin:CGFloat = 0
+		var dataMax:CGFloat = 0
+		var dataValue:CGFloat = 0
+		var dataString = ""
+		var dataFraction:CGFloat = 0
+		var dataUnit = ""
+		var siteName = ""
+		var siteLocation = CLLocation()
+		var siteDistance:Double = 0
+		var publishTime = ""
+		var colorR:CGFloat = 0
+		var colorG:CGFloat = 0
+		var colorB:CGFloat = 0
+		var colorA:CGFloat = 0
+	}
 	// MARK: -
 	private let dataURL	= "http://www.prodisky.com/LASS/"
 	//預設位置座標 - 地圖的台灣預設中間點 - 信義鄉
@@ -32,15 +50,15 @@ class Data: NSObject {
 			guard let gotData = data else { return }
 			do {
 				let gotObject = try NSJSONSerialization.JSONObjectWithData(gotData, options: .MutableContainers)
-				if let dataItems = gotObject as? [String] {
-					got(dataItems)
+				if let items = gotObject as? [String] {
+					got(items)
 					return
 				}
 			} catch { }
 		})
 		task.resume()
 	}
-	func getData(data:String, got:((Dictionary<String, AnyObject>)->Void)) {
+	func getItem(data:String, got:((Item)->Void)) {
 		guard let URL = NSURL(string:"\(dataURL)?lat=\(self.location.coordinate.latitude)&lng=\(self.location.coordinate.longitude)&data=\(data)") else { return }
 		let request = NSURLRequest(URL: URL)
 		let configuration = NSURLSessionConfiguration.defaultSessionConfiguration()
@@ -51,8 +69,35 @@ class Data: NSObject {
 			guard let gotData = data else { return }
 			do {
 				let gotObject = try NSJSONSerialization.JSONObjectWithData(gotData, options: .MutableContainers)
-				if let items = gotObject as? Dictionary<String, AnyObject> {
-					got(items)
+				if let item = gotObject as? Dictionary<String, AnyObject> {
+					guard let dataName = item["DataName"] as? String else { return }
+					guard let dataMin = item["DataMin"] as? CGFloat else { return }
+					guard let dataMax = item["DataMax"] as? CGFloat else { return }
+					guard let dataValue = item["DataValue"] as? CGFloat else { return }
+					guard let dataUnit = item["DataUnit"] as? String else { return }
+					
+					guard let siteName = item["SiteName"] as? String else { return }
+					guard let siteLat = item["SiteLat"] as? Double else { return }
+					guard let siteLng = item["SiteLng"] as? Double else { return }
+					
+					guard let publishTime = item["PublishTime"] as? String else { return }
+					guard let color = item["Color"] as? String else { return }
+
+					let colorRGBA = color.stringByReplacingOccurrencesOfString(" ", withString: "").componentsSeparatedByString(",")
+					
+					if colorRGBA.count != 4 { return }
+					
+					let dataString = dataValue == CGFloat(Int(dataValue)) ? String(Int(dataValue)) : String(dataValue)
+					let dataFraction = (dataMax-dataMin) > 0 ? (CGFloat(dataValue) - dataMin) / (dataMax-dataMin) : 0
+					let siteLocation:CLLocation = CLLocation(latitude: siteLat, longitude: siteLng)
+					let siteDistance = siteLocation.distanceFromLocation(Data.shared.location)
+					
+					let colorR = CGFloat(Float(colorRGBA[0])!/Float(255))
+					let colorG = CGFloat(Float(colorRGBA[1])!/Float(255))
+					let colorB = CGFloat(Float(colorRGBA[2])!/Float(255))
+					let colorA = CGFloat(Float(colorRGBA[3])!)
+					
+					got(Item(dataName: dataName, dataMin: dataMin, dataMax: dataMax, dataValue: dataValue, dataString: dataString, dataFraction: dataFraction, dataUnit: dataUnit, siteName: siteName, siteLocation: siteLocation, siteDistance: siteDistance, publishTime: publishTime, colorR: colorR, colorG: colorG, colorB: colorB, colorA: colorA))
 					return
 				}
 			} catch { }

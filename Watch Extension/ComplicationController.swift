@@ -24,23 +24,13 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
 		
 		Data.shared.getItems({(items:[String]) in
 			guard let item = items.first else { return }
-			Data.shared.getData(item, got: {(dataItem:Dictionary<String, AnyObject>) in
-				guard let name = dataItem["DataName"] as? String else { return }
+			Data.shared.getItem(item, got: {(dataItem:Data.Item) in
+				self.name = dataItem.dataName
+				self.modularImage = StyleKitDial.imageOfDataRing(frame: WKInterfaceDevice.currentDevice().preferredContentSizeCategory == "UICTContentSizeCategoryL" ? CGRectMake(0, 0, 58, 58) : CGRectMake(0, 0, 52, 52), data: dataItem.dataString, unit: dataItem.dataUnit, value: dataItem.dataFraction)
+				self.circularImage = StyleKitDial.imageOfDataRing(frame: WKInterfaceDevice.currentDevice().preferredContentSizeCategory == "UICTContentSizeCategoryL" ? CGRectMake(0, 0, 44, 44) : CGRectMake(0, 0, 40, 40), data: dataItem.dataString, unit: dataItem.dataUnit, value: dataItem.dataFraction)
 				
-				guard let dataMin = dataItem["DataMin"] as? CGFloat else { return }
-				guard let dataMax = dataItem["DataMax"] as? CGFloat else { return }
-				guard let dataValue = dataItem["DataValue"] as? Int else { return }
-				let value = (dataMax-dataMin) > 0 ? (CGFloat(dataValue) - dataMin) / (dataMax-dataMin) : 0
-				
-				guard let unit = dataItem["DataUnit"] as? String else { return }
-				guard let time = dataItem["PublishTime"] as? String else { return }
-				
-				self.name = name
-				self.modularImage = StyleKitDial.imageOfDataRing(frame: WKInterfaceDevice.currentDevice().preferredContentSizeCategory == "UICTContentSizeCategoryL" ? CGRectMake(0, 0, 58, 58) : CGRectMake(0, 0, 52, 52), data: String(dataValue), unit: unit, value: value)
-				self.circularImage = StyleKitDial.imageOfDataRing(frame: WKInterfaceDevice.currentDevice().preferredContentSizeCategory == "UICTContentSizeCategoryL" ? CGRectMake(0, 0, 44, 44) : CGRectMake(0, 0, 40, 40), data: String(dataValue), unit: unit, value: value)
-				
-				self.data = String(dataValue) + " " + unit
-				self.time = time
+				self.data = dataItem.dataString + " " + dataItem.dataUnit
+				self.time = dataItem.publishTime
 			})
 		})
 	}
